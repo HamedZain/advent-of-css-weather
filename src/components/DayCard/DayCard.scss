@@ -1,0 +1,153 @@
+.day-card {
+	width: 164px;
+	flex: 0 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&__day {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		color: var(--clr-blue);
+
+		&__name {
+			font-size: 24px;
+		}
+
+		&__number {
+			font-size: 80px;
+		}
+	}
+
+	&__card {
+		width: 100%;
+		height: 525px;
+		padding: 24px 0;
+		border-radius: 48px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		background-color: var(--clr-yellow);
+
+		&__image {
+			display: flex;
+			justify-content: center;
+			height: 200px;
+			position: relative;
+
+			img {
+				position: absolute;
+			}
+		}
+
+		&__temp {
+			font-size: 110px;
+			font-family: 'Oswald', sans-serif;
+			text-align: center;
+			position: relative;
+
+			&:after {
+				content: '°';
+				font-size: 3rem;
+				position: absolute;
+				top: 6px
+			}
+		}
+
+		&__info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+
+			&__item {
+				display: grid;
+				grid-template-columns: 32px 64px;
+				grid-template-rows: auto;
+				gap: 8px;
+
+				& > * {
+					align-self: center;
+				}
+			}
+		}
+	}
+
+	&--cloudy &__card, &--partly-cloudy &__card {
+		background-color: var(--clr-blue);
+		color: var(--clr-white);
+
+		&__image img {
+			// image position
+		}
+
+		&__temp {
+			color: var(--clr-yellow);
+		}
+	}
+
+	&--partly-cloudy &__card {
+		&__image img {
+			top: -16px;
+		}
+	}
+
+	&--rainy &__card {
+		background-color: var(--clr-dark-blue);
+		color: var(--clr-white);
+
+		&__image img {
+			top: -64px;
+		}
+
+		&__temp {
+			color: var(--clr-yellow);
+		}
+	}
+
+	&--snowy &__card {
+		background-color: var(--clr-light-blue);
+		color: var(--clr-dark);
+
+		&__image img {
+			left: -18px;
+		}
+
+		&__temp {
+			color: var(--clr-dark);
+		}
+	}
+
+	&--stormy &__card {
+		background-color: var(--clr-dark);
+		color: var(--clr-white);
+
+		&__image img {
+			top: -12px;
+			left: -40px;
+		}
+
+		&__temp {
+			color: var(--clr-yellow);
+		}
+	}
+
+	&--sunny &__card {
+		background-color: var(--clr-yellow);
+		color: var(--clr-blue);
+
+		&__image img {
+			top: -26px;
+			left: -43px;
+		}
+
+		&__temp {
+			color: var(--clr-blue);
+		}
+	}
+}
