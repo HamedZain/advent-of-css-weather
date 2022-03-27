@@ -5,26 +5,23 @@ import "./DayCard.scss"
 import { ReactComponent as PrecipitationIcon } from '../../assets/svg/precipitation.svg'
 import { ReactComponent as LowIcon } from '../../assets/svg/low.svg'
 
-type WeatherState = 'cloudy' | 'partly-cloudy' | 'rainy' | 'snowy' | 'stormy' | 'sunny'
-type WeatherData = {
-	state: WeatherState
+interface DayCardProps {
+	date: string
+	state: string
 	temperature: number
 	precipitation: number
-	wind: number
+	low: number
 }
 
-interface DayCardProps {
-	date: Date
-	weather: WeatherData
-}
+export const DayCard: FC<DayCardProps> = props => {
 
-export const DayCard: FC<DayCardProps> = ({ date, weather }) => {
+	const date = new Date(props.date)
 
 	const dayStr = date.toLocaleDateString('en-us',  { weekday: 'short' }).toUpperCase()
 	const dayNum = date.getDate()
 
 	return (
-		<div className={`day-card day-card--${weather.state}`}>
+		<div className={`day-card day-card--${props.state}`}>
 			<header className="day-card__day">
 				<p className="day-card__day__name">{dayStr}</p>
 				<p className="day-card__day__number">{dayNum}</p>
@@ -32,7 +29,7 @@ export const DayCard: FC<DayCardProps> = ({ date, weather }) => {
 
 			<div className="day-card__card">
 				<div className="day-card__card__image">
-					<img src={`img/${weather.state}.svg`} alt={`${weather.state} weather image`} />
+					<img src={`img/${props.state}.svg`} alt={`${props.state} weather image`} />
 				</div>
 
 				<p className="day-card__card__temp">71</p>
