@@ -32,17 +32,17 @@ export const DayCard: FC<DayCardProps> = props => {
 					<img src={`img/${props.state}.svg`} alt={`${props.state} weather image`} />
 				</div>
 
-				<p className="day-card__card__temp">71</p>
+				<p className="day-card__card__temp">{props.temperature}</p>
 
 				<div className="day-card__card__info">
 					<p className="day-card__card__info__item">
 						<PrecipitationIcon />
-						<span>84%</span>
+						<span>{props.precipitation}%</span>
 					</p>
 
 					<p className="day-card__card__info__item">
 						<LowIcon />
-						<span>28°</span>
+						<span>{props.low}°</span>
 					</p>
 				</div>
 			</div>
