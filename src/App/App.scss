@@ -1,0 +1,41 @@
+.App {
+	width: 100vw;
+	min-height: 100vh;
+
+	display: flex;
+	align-items: center;
+
+	&__scrollable-container {
+		overflow: scroll;
+		scroll-behavior: smooth;
+
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&__list {
+		width: max-content;
+		padding: 0 max(32px, calc(50vw - 576px / 2));
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 48px;
+
+		animation: move-in 2s cubic-bezier(0.8, 0, 0.2, 1);
+	}
+}
+
+@keyframes move-in {
+	from {
+		padding: 0 120vw
+	}
+
+	to {
+
+	}
+}
+
